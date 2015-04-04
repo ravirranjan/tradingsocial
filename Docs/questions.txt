@@ -1,0 +1,87 @@
+Q1] Say you had to design a hospital system maintaining patient records.
+You expect to grow to about 1000 branches over 2 years.                       
+1. How would you design the system for scale and performance?    
+2. What kind of java design patterns or list of classes you will create?
+3. Any idea how can you model using spring technology?                  
+Remember that all patient visits, history of ailments, treatment and medication prescriptions are to be store                       
+
+Ans: It should be a purely REST web application developed in spring, this gives us flexibility on UI technology side whether there is web UI to access from desktop or Android App or iOS app designed to access from mobile devices each will call our only REST APIs, so no worry about view and extra API calls. This should be designed to consume and produce JSON type of media via Data Transfer Objects for improved performance. Spring-Security can be enabled to intercept access of different user to various modules of the application i.e. Doctor, Patient, Billing, Pathology, Reports, Medical Store, etc. Message Queues should be used for some scheduled activities like generating notifications, reports, send emails, etc. via distributed connector architecture which will take-off much application load when end users belongs to 1000 of branches continuosly accessing the application. As far as the design pattern or architecture is considered the control flows through 4 layeres i.e. Controller, Application, Service and Repository. Various design patterns can be introduced based on use cases.
+
+
+Q2] What is the best usecase for a mongodb store?
+Ans: MongoDB’s flexible schema makes it particularly well suited to storing information for product data management and e-commerce websites and solutions. i.e. for "Product Catalog", "Inventory Management",  "Category Hierarchy", etc..
+
+Q3] How will you find a range of values in mongodb? like say show me all records between 3 and 100.
+Ans: db.collection.find().skip(2).limit(98);
+
+Q4] How will you scale high volume concurrent inserts in a Mongodb table?
+Ans: MongoDB inserts cannot be done concurrently as collection level locking is not yet supported. By using concept of "Sharding" we can acheive this.
+
+Q5] What is the concept of sharding? How is it different from replication? Please provide a usecase and implementation of both from the real world.
+Ans: Sharding is a method for storing data across multiple machines. MongoDB uses sharding to support deployments with very large data sets and high throughput operations. Sharding gives a much better concurrency and higher disk I/O capacity as it distribute writes across several machines.
+
+Q6] What is normalization of data? How many levels are possible?
+Ans: Database Normalization involves refactoring a table without losing information. The main purpose of normalization is to eliminate reduntant (useless) data. There are 4 levels (stages) in database normalization as 1NF, 2NF, 3NF and BCNF. Each level of normalization relies on the previous level.
+
+Q7] Why are relational databases better than NoSQL? Or is that true?
+Ans: It is not true that SQL is better than NoSQL. Both are different in terms of scaling, SQL databases are vertically scalable whereas the NoSQL databases are horizontally scalable. SQL databases are scaled by increasing the hardware capacity. NoSQL databases are scaled by increasing the databases servers in the pool of resources to reduce the load. So, choosing the right one hinges on the use case. If our data needs are changing rapidly, we need high throughput to handle viral growth, or your data is growing fast and you need to be able to scale out quickly and efficiently, maybe NoSQL is choise. But if the data we have isn’t changing in structure and we’re experiencing moderate, manageable growth, our needs may be best met by SQL technologies.
+
+Q8] If you had to store and process jpeg format files, what datastores/tools would you use?
+Ans: Best practice is to always store the jpeg file in related directories and store their paths into database. Because, storing jpeg files in databaseis usually more expensive than file system storage and it will always affect database performance.
+
+Q9] What is chef and puppet and when will you use one over the other?
+Ans: Chef and Puppet are configuration management tools which automates the tasks that sysadmins often do manually and can integrate with cloud-based platforms.
+Technically, Puppet and Chef have similar capabilities.
+The language that Puppet uses to configure servers is designed specifically for the task. 
+Chef uses an extension of the Ruby language which is not designed for configuration management and learning Ruby is a lot harder than learning Puppet’s language. Chef was strongly inspired by Puppet. It largely duplicates functionality that already existed in Puppet - but it doesn’t yet have all the capabilities of Puppet. Chef doesn’t really offer anything new. So, My recommendation is to go with Puppet.
+
+Q10] How will you make deployments repeatable and error free?
+Ans: In order to achieve deployments repeatable and error free, one should automate the deployment process as manual deployments are always error prone. With help of Build Automation and Continous Integration Tools we can automate the build and deployment phases.
+
+Q11] Can I move my AWS instance between availability zones without downtime?
+Ans: We cannot move an existing EC2 instance to a different availability zone directly. We have to Stop the old instance in the old availability zone.
+
+Q12] What is AWS Autoscaling?
+Ans: AWS Autoscaling gives flexibility in terms of number of EC2 instances and their capacity. In other words we can add/remove EC2 Instances and/or upgrade/reduce capacity of instances from autoscaling group on demand.
+
+Q13] I have a text file with timings as shown below. For eg, the first line entry is 10 minutes, 3 seconds and 293 milli seconds.                       
+Write a script in bash/perl/python to parse this text file, add and print the sum of these timings as output.                       
+                       
+10.03.293                       
+00.58.395                       
+20.59.001
+
+Ans: #!/bin/sh
+cat FILE | while read line;
+export IFS=.
+nums=(0 0 0)
+for count in $line; 
+do
+    for ((i=0; i<${#nums[@]}; i++)) 
+    do
+        nums[$i]=`expr nums[$i] + $count`
+    done
+done
+for total in "${nums[@]}"
+do
+    echo "$total"
+done
+
+
+Q14] How do you stop a fork bomb if you are already logged into a system?
+Ans: If user already logged into the system, execute killall command is the only option to deal with fork bomb, killall -STOP processname.
+
+Q15] You delete a log file that apache is using and did not restart apache yet, how can you recover that log file?
+Ans: I am not sure, but if tomcat keeps logging into the file which is deleted and not accessible, we can find the process id of process actually writing the tomcat log and can get the file handle. 
+
+Q16] In Spring MVC, what is the pros and cons of calling multiple service calls from the controller?
+Ans: The service classes have a lot of dependencies and a lot of circular dependencies. The service layer of a typical Spring web application does not consist of loosely coupled services which have only one responsibility. It is a more like a net of tightly coupled and monolithic services. So, things are get copied instead of called when multiple calls happens from controller to service layer.
+
+Q17] If you want to use multiple ajax calls on a page with Spring controller, which type of controller you would use and why?
+Ans: Basic Spring controller can be used for ajax calls.
+
+Q18] If given a chance to change something for bootstrap css framework, what would you change and why?
+Ans: As twitter bootstrap is super-popular, everyone is using it. Due to which most of the websites/blogs are looking alike just like Wordpress. So, If given a chance I will add more customizable out-of-the-box themes and more jQuery plugins.
+
+Q19] What do you think is the future of enterprise web applications developement in terms of basic native JavaScript vs EmberJS kind of framework usage?
+Ans: I can’t actually predict the future, but the fact is that javascript frameworks like Angular JS, Ember JS, Backbone JS, Durandal JS, etc... provides a foundation for creating amazing, next-generation user experiences for the web.

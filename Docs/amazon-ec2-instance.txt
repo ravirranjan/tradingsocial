@@ -1,0 +1,9 @@
+OS: Red Hat Enterprise Linux 7.1 (64-bit)
+Instance Name: Web Server
+Instance ID: i-8fdc0682
+Instance Type: t2.micro
+Public IP: 52.10.29.154
+
+ssh -i awsmicro.pem ec2-user@52.10.29.154
+
+http://52.10.29.154:8080

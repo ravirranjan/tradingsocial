@@ -1,0 +1,25 @@
+wget http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.10.v20150310.tar.gz
+
+tar zxvf jetty-distribution-9.2.10.v20150310.tar.gz -C /opt/
+
+mv /opt/jetty-distribution-9.2.10.v20150310/ /opt/jetty
+
+useradd -m jetty
+
+chown -R jetty:jetty /opt/jetty/
+
+ln -s /opt/jetty/bin/jetty.sh /etc/init.d/jetty
+
+chkconfig --add jetty
+
+chkconfig --level 345 jetty on
+
+vi /etc/default/jetty
+ 
+JETTY_HOME=/opt/jetty
+JETTY_USER=jetty
+JETTY_PORT=8080
+JETTY_HOST=localhost
+JETTY_LOGS=/opt/jetty/logs/
+
+service jetty start

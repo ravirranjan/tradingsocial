@@ -1,0 +1,15 @@
+yum install postgresql-server
+
+service postgresql initdb
+
+chkconfig postgresql on
+
+vi /var/lib/pgsql/data/postgresql.conf
+listen_addresses = 'localhost'
+port = 5432
+
+sudo su - postgres
+
+psql
+
+\q
