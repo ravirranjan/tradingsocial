@@ -14,13 +14,28 @@ jQuery(document).ready(function() {
 	    Countdown initializer
 	*/
 	var now = new Date();
-	var countTo = 100 * 24 * 60 * 60 * 1000 + now.valueOf();    
-	$('.timer').countdown(countTo, function(event) {
-		$(this).find('.days').text(event.offset.totalDays);
-		$(this).find('.hours').text(event.offset.hours);
-		$(this).find('.minutes').text(event.offset.minutes);
-		$(this).find('.seconds').text(event.offset.seconds);
-	});
+	
+    var countdown_to={
+            year:2015,
+            month:7,
+            date:20,
+            hours:12,
+            minutes:60,
+            seconds:60
+        };
+
+    now.setFullYear(countdown_to.year,countdown_to.month,countdown_to.date);
+    now.setHours(countdown_to.hours);
+    now.setMinutes(countdown_to.minutes);
+    now.setSeconds(countdown_to.seconds);
+
+    var countTo = now.valueOf();    
+    $('.timer').countdown(countTo, function(event) {
+        $(this).find('.days').text(event.offset.totalDays);
+        $(this).find('.hours').text(event.offset.hours);
+        $(this).find('.minutes').text(event.offset.minutes);
+        $(this).find('.seconds').text(event.offset.seconds);
+    });
 
     /*
         Tooltips
