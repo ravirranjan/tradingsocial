@@ -1,0 +1,15 @@
+wget https://www.rabbitmq.com/releases/erlang/erlang-17.4-1.el6.x86_64.rpm
+
+yum install erlang-17.4-1.el6.x86_64.rpm
+
+wget https://github.com/rabbitmq/rabbitmq-server/releases/download/rabbitmq_v3_5_2/rabbitmq-server-3.5.2-1.noarch.rpm
+
+rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+
+yum install rabbitmq-server-3.5.2-1.noarch.rpm
+
+/sbin/service rabbitmq-server stop/start/status
+
+rabbitmq-plugins enable rabbitmq_management
+
+http://52.10.29.154:15672
