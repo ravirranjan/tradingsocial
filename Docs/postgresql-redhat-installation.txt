@@ -8,10 +8,32 @@ vi /var/lib/pgsql/data/postgresql.conf
 listen_addresses = 'localhost'
 port = 5432
 
-sudo su - postgres
-
-createuser -P -s -e tradingsocial
-
-psql
-
+// setup default user password
+sudo -u postgres psql postgres
+\password postgres
+Enter new password: book1mark
+Enter it again: book1mark
 \q
+
+// allowing local connections
+vi /var/lib/pgsql/data/pg_hba.conf
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            ident
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+
+CHANGE 'ident' to 'trust'
+
+service postgresql restart
+
+
+\l : list databases
+CREATE DATABASE tradingsocial;
+
+\connect tradingsocial : switch database
+
+CREATE TABLE user (id BIGSERIAL PRIMARY KEY, name varchar(40) NOT NULL CHECK (name <> ''));
+
+\dt : list all tables in the current database
+
+\q : exit
