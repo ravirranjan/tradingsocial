@@ -4,7 +4,49 @@
 	border-top: 1px solid #bcbcbc;
 	margin: 0 auto;
 }
-
+#search-form .searchField {
+	background: #fff url("../images/search-icon.png") no-repeat scroll calc(100% - 10px) 6px;
+	width: calc(100% - 20px);
+}
+#trading-social-login, #trading-social-signup {
+	display: none;
+}
+#trading-social-login.is-selected, #trading-social-signup.is-selected {
+	display: block;
+}
+.modal-header {
+	border-bottom: medium none;
+	padding: 0;
+}
+.modal-header .header-switcher::after {
+	clear: both;
+	content: "";
+	display: table;
+	border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+.modal-header .header-switcher li {
+	float: left;
+	text-align: center;
+	width: 50%;
+	list-style: outside none none;
+}
+.modal-header .header-switcher a {
+	height: 70px;
+	background: #d2d8d8 none repeat scroll 0 0;
+	color: #809191;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+}
+.modal-header .header-switcher a.selected {
+	background: #fff none repeat scroll 0 0;
+	color: #505260;
+}
 .logo{
 
 	color: #555 !important;
@@ -22,4 +64,10 @@ footer{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+.modal.is-visible {
+	opacity: 1;
+	visibility: visible;
+	display: block;
+	
 }
