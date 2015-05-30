@@ -16,8 +16,7 @@ public class UserController {
 	private UserApplication application;
 
 	@RequestMapping(value = "/users/{userid}", method = RequestMethod.GET)
-	@ResponseBody
-	public User getUser(@PathVariable("userid") Integer userId) {
+	public @ResponseBody User getUser(@PathVariable("userid") Integer userId) {
 		return application.getUser(userId);
 	}
 
