@@ -1,0 +1,39 @@
+.trending-stock-container .navbar-header {
+	font-size: 10pt;
+	padding: 6px 10px 0 0;
+	text-transform: uppercase;
+	margin-left: 15px;
+}
+.trending-stock-container .navbar-nav > li > a {
+	line-height: 0;
+
+}
+.navbar-nav > li > a {
+	line-height: 0;
+	border-right: 1px solid #ccc;
+	padding-bottom: 14px;
+	padding-top: 14px;
+}
+
+.navbar-default .main-nav > li > a {
+	margin-left: 20px;
+	color: #fff;
+	padding-bottom: 17px;
+	padding-top: 17px;
+}
+@media (min-width: 1300px) {
+	.navbar-default .container{
+		width: 1350px;
+	}
+}
+.navbar-default .main-nav > li > a:hover , .navbar-default .main-nav > li > a:focus {
+	background-color: #286090 !important;
+	color: #fff;
+}
+.margin-bottom-sm {
+    margin: 35px 0px;
+}
+
+.modal-body {
+    overflow: hidden;
+}
