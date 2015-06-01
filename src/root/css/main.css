@@ -55,19 +55,55 @@
 	font-weight: 400;
 }
 
+.trading-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	margin-top: 150px;
+}
+
+article#how {text-align: center; background-color: #efefef;	 min-height: 150px;  padding-top: 30px; border-top: 1px solid #bdbdbd; border-bottom: 1px solid #bdbdbd;}
+#how h5 {text-transform: uppercase; color: #40576f;  margin-bottom: 18px; }
+
+.sentiment-analysis, .trade, .aside, .next-features {
+	background: ##f5f5f5;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.235);
+	border-top: 1px solid rgba(0, 0, 0, 0.11);
+
+	margin: 20px 0px;
+
+}
 footer{
 
 	height: auto;
-	background-color: #f5f5f5;
+	//background-color: #f5f5f5;
 	text-align: center;
-	padding: 20px 0;
+	padding: 20px 160px;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	position: relative;
+	margin: 40px 0px;
 }
 .modal.is-visible {
 	opacity: 1;
 	visibility: visible;
 	display: block;
 	
+}
+
+@media only screen and (min-width: 280px) and (max-width: 1067px) {
+
+	.sentiment-analysis, .trade, .aside, .next-features {
+
+		text-align: center;
+	}
+	footer{
+		position: relative;
+		padding: 20px 0px;
+	}
+	footer .social{
+		text-align: center !important;
+		
+	}
 }

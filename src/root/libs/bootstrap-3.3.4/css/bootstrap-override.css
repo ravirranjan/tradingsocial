@@ -21,6 +21,11 @@
 	padding-bottom: 17px;
 	padding-top: 17px;
 }
+
+.panel {
+	min-height: 100px;
+	box-shadow: none;
+}
 @media (min-width: 1300px) {
 	.navbar-default .container{
 		width: 1350px;
