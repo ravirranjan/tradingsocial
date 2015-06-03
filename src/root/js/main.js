@@ -43,4 +43,13 @@ $(document).ready(function($){
 		$tab_login.removeClass('selected');
 		$tab_signup.addClass('selected');
 	}
+
+	$('[data-toggle="popover"]').popover({
+		html: true,
+		placement: 'bottom',
+		trigger: 'hover',
+		content: function () {
+			return '<img src="'+$(this).data('img') + '" />';
+		}
+	});
 });
