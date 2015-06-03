@@ -11,28 +11,39 @@
 #trading-social-login, #trading-social-signup {
 	display: none;
 }
+
+a:hover, a:focus {
+text-decoration: none;
+outline: none;
+}
+
+.popover-content {
+    padding: 0;
+}
 #trading-social-login.is-selected, #trading-social-signup.is-selected {
 	display: block;
 }
 .modal-header {
-	border-bottom: medium none;
+	
 	padding: 0;
 }
-.modal-header .header-switcher::after {
+.modal-header .header-switcher {
+	 border: 0 none;
 	clear: both;
 	content: "";
 	display: table;
-	border: 0 none;
     font: inherit;
     margin: 0;
     padding: 0;
     vertical-align: baseline;
+    width: 100%;
 }
 .modal-header .header-switcher li {
 	float: left;
 	text-align: center;
 	width: 50%;
 	list-style: outside none none;
+	padding: 0;
 }
 .modal-header .header-switcher a {
 	height: 70px;
@@ -42,6 +53,7 @@
 	height: 50px;
 	line-height: 50px;
 	width: 100%;
+	font-size: 24px
 }
 .modal-header .header-switcher a.selected {
 	background: #fff none repeat scroll 0 0;
