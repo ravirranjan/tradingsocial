@@ -15,4 +15,10 @@ public class UserApplication {
 		return userService.getUser(userId);
 	}
 
+	public Integer login(String email, String password) {
+		Integer userId = userService.login(email, password);
+		
+		return userId;
+	}
+
 }

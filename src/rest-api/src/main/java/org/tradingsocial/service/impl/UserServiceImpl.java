@@ -13,9 +13,22 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	public User getUser(int id) {
 		return userDAO.getUser(id);
+	}
+
+	public Integer login(String emailAddress, String password) {
+		if (emailAddress == null || password == null) {
+			return null;
+		}
+
+		User user = userDAO.loginAsUser(emailAddress, password);
+
+		if (user == null) {
+			return null;
+		}
+		return user.getId();
 	}
 
 }

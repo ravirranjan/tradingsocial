@@ -3,8 +3,9 @@ package org.tradingsocial.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-public abstract class AbstractDAO {
+public abstract class AbstractDAO extends HibernateDaoSupport{
 
 	@Autowired
 	private SessionFactory sessionFactory;
