@@ -20,4 +20,21 @@ public class UserController {
 		return application.getUser(userId);
 	}
 
+	@RequestMapping(value = "/email/{email}/password/{password}", method = RequestMethod.GET)
+	public @ResponseBody Integer login(@PathVariable("email") String email,
+			@PathVariable("password") String password) {
+		Integer userId = application.login(email, password);
+
+		return userId;
+	}
+
+	@RequestMapping(value = "forgotPassword/{forgotPassword}/email/{email}", method = RequestMethod.GET)
+	public @ResponseBody Integer forgotPassword(@PathVariable("email") String email, @PathVariable("forgotPassword") String forgotPassword) {
+
+		if (forgotPassword.equalsIgnoreCase("true")) {
+			return application.forgotPassword(email);
+		}
+		
+		return 0;
+	}
 }
