@@ -8,10 +8,23 @@
 	background: #fff url("../images/search-icon.png") no-repeat scroll calc(100% - 10px) 6px;
 	width: calc(100% - 20px);
 }
-#trading-social-login, #trading-social-signup {
-	display: none;
+
+.remember-pass, .forgot-pass, .btn-signin {
+
+	padding: 0;
+}
+.forgot-pass-header {
+
+	padding: 15px;
+	background: #265a88;
+    color: #fff;
 }
 
+.forgot-pass-modal-footer {
+    height: auto;
+    margin-top: 20px;
+    overflow: auto;
+}
 a:hover, a:focus {
 text-decoration: none;
 outline: none;
@@ -20,8 +33,11 @@ outline: none;
 .popover-content {
     padding: 0;
 }
-#trading-social-login.is-selected, #trading-social-signup.is-selected {
-	display: block;
+#trading-social-login.is-selected, #trading-social-signup.is-selected, #forget_password.is-selected, .forgot-pass-header.is-selected {
+	display: block !important;
+}
+.header-switcher.is-selected {
+	display: table !important;
 }
 .modal-header {
 	
@@ -47,8 +63,8 @@ outline: none;
 }
 .modal-header .header-switcher a {
 	height: 70px;
-	background: #d2d8d8 none repeat scroll 0 0;
-	color: #809191;
+	background: #265a88;  
+	color: #fff;
 	display: block;
 	height: 50px;
 	line-height: 50px;
@@ -56,8 +72,11 @@ outline: none;
 	font-size: 24px
 }
 .modal-header .header-switcher a.selected {
-	background: #fff none repeat scroll 0 0;
+	background: #fff;
 	color: #505260;
+}
+#trading-social-login, #trading-social-signup, #forget_password, .forgot-pass-header, .header-switcher {
+	display: none !important;
 }
 .logo{
 
