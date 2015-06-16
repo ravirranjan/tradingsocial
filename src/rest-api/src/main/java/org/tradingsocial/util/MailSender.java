@@ -1,11 +1,5 @@
 package org.tradingsocial.util;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -21,13 +15,12 @@ import org.springframework.stereotype.Component;
 /**
  * User: Mayur Kavhalkar
  */
-@Component("fullLiveMailSender")
+@Component
 @Scope("prototype")
 public class MailSender {
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(MailSender.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MailSender.class);
 
-	@Resource(name = "javaMailSender")
+	@Resource
 	private JavaMailSender javaMailSender;
 
 

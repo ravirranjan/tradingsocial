@@ -29,9 +29,9 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "forgotPassword/{forgotPassword}/email/{email}", method = RequestMethod.GET)
-	public @ResponseBody Integer forgotPassword(@PathVariable("email") String email, @PathVariable("forgotPassword") String forgotPassword) {
+	public @ResponseBody Integer forgotPassword(@PathVariable("email") String email, @PathVariable("forgotPassword") boolean forgotPassword) {
 
-		if (forgotPassword.equalsIgnoreCase("true")) {
+		if (forgotPassword) {
 			return application.forgotPassword(email);
 		}
 		

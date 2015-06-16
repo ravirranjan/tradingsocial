@@ -15,7 +15,7 @@ public class UserActionsDAOImpl extends AbstractDAO implements UserActionsDAO {
 		return (UserActions) getSession().get(UserActions.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public List<UserActions> getUserActionsBySourceUserId(int sourceUserId) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(UserActions.class).add(Restrictions.eq("sourceUserId", sourceUserId));
 		return (List<UserActions>) getHibernateTemplate().findByCriteria(criteria);
@@ -32,7 +32,7 @@ public class UserActionsDAOImpl extends AbstractDAO implements UserActionsDAO {
 		DetachedCriteria criteria = DetachedCriteria.forClass(UserActions.class).add(Restrictions.eq("targetStockId", targetStockId));
 		return (List<UserActions>) getHibernateTemplate().findByCriteria(criteria);
 	}
-
+*/
 	public void saveOrUpdate(UserActions userActions) {
 		getSession().saveOrUpdate(userActions);
 	}
@@ -46,11 +46,24 @@ public class UserActionsDAOImpl extends AbstractDAO implements UserActionsDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<UserActions> getAllUserActions() {
-		DetachedCriteria criteria = DetachedCriteria.forClass(UserActions.class);
-		return (List<UserActions>) getHibernateTemplate().findByCriteria(criteria);
-	/*	@SuppressWarnings("unchecked")
+			@SuppressWarnings("unchecked")
 		List<UserActions> listUser = (List<UserActions>) getSession().createCriteria(UserActions.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		return listUse;r*/
+		return listUser;
+	}
+	
+	public List<UserActions> getUserActionsBySourceUserId(int sourceUserId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<UserActions> getUserTweetsbyStockId(int targetStockId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<UserActions> getUserActionsBy(int targetStockId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
