@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUser(id);
 	}
 
-	public Integer login(String emailAddress, String password) {
+	public User login(String emailAddress, String password) {
 		if (emailAddress == null || password == null) {
 			return null;
 		}
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 		if (user == null) {
 			return null;
 		}
-		return user.getId();
+		return user;
 	}
 
 }

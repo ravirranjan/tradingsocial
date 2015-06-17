@@ -3,6 +3,7 @@ package org.tradingsocial.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.tradingsocial.dao.AbstractDAO;
@@ -43,7 +44,9 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 	}
 
 	public User loginAsUser(String emailAddress, String password) {
-		return (User) getSession().createQuery("from User user where user.emailAddress=? and user.password=?").setParameter(0, emailAddress).setParameter(1, password);
+		return (User) getSession().createCriteria(User.class)
+				.add(Restrictions.eq("emailAddress", emailAddress))
+				.add(Restrictions.eq("password", password)).uniqueResult();
 	}
 
 }
