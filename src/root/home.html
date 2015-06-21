@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trading Social</title>
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="libs/ico/favicon.ico">
+	<!-- jquery-2.1.4 -->
+	<script src="libs/jquery-2.1.4/jquery-ui.min.css"></script>
+	
+	<!-- Bootstrap css-->
+	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-theme.min.css">
+	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-override.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+
+	<!-- Trending Social css -->
+	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700'> -->
+	<link type="text/css" rel="stylesheet" href="css/main.css">	
+</head>
+<body>
+	<nav class="navbar  navbar-default navbar-fixed-top" role="navigation">
+		<div class="header-stock container ">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand logo" href="#">Trading Social</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right" id="top-stock-navbar-collapse">
+
+				<ul id="user-info" class="logged-in">
+
+					<li id="session-nav" class="logged-in">
+						<div id="trader-name">
+							<a id="user-login-name">
+								<div id="user-avatar">
+									<img src="images/default-avatar-thumb.jpg" alt="Default-avatar-thumb">
+								</div>
+								<span class="user-login-text">tweetFromRavi</span>
+								<span id="down-arrow"></span>
+							</a>
+						</div>
+						<div style="" id="trader-drop-down" style="display:none">
+							<ul>
+								<li>
+									<a href="#">My Profile</a>
+								</li>
+								<li>
+									<a href="#">Settings</a>
+								</li>
+								<li class="nb">
+									<a href="/index.html">Sign Out</a>
+								</li>
+							</ul>
+						</div>
+
+					</li>
+				</ul>
+
+			</div>
+
+			<form class="col-md-4 navbar-right" id="search-form" role="search">
+				<div class="">
+					<input type="text" class="form-control navbar-btn searchField" placeholder="SYMBOL($AAPL) or USERNAME">
+				</div>
+			</form>
+		</div><!-- /.navbar-collapse -->
+		<div class="trending-stock-container clearfix">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				TRENDING
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="trending-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class=""><a href="#" data-toggle="popover" data-img="images/atnm.png" class="hovered">$ATNM</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/nq.png" class="hovered">$NQ</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/amba.png" class="hovered">$AMBA</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/agio.png" class="hovered">$AGIO</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/cnc.png" class="hovered">$CNC</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/uup.png" class="hovered">$UUP</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/smh.png" class="hovered">$SMH</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/ppl.png" class="hovered">$PPL</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/nq.png" class="hovered">$NQ</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/amba.png" class="hovered">$AMBA</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/agio.png" class="hovered">$AGIO</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/cnc.png" class="hovered">$CNC</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/uup.png" class="hovered">$UUP</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/smh.png" class="hovered">$SMH</a></li>
+					<li class=""><a href="#" data-toggle="popover" data-img="images/ppl.png" class="hovered">$PPL</a></li>
+					
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<div class="container trading-container">
+		<div id="recent-content">
+			<h2 class="long-title">Recently Viewed</h2>
+			<ul class="history history-list clearfix">
+				<div id="history">
+					<li>
+						<a href="#">$AMBA</a>
+					</li>
+					<li>
+						<a href="#">My Profile</a>
+					</li>
+				</div>
+			</ul>
+		</div>
+		<div id="top-content" class="clearfix">
+			<div class="profile-top">
+				<div class="user-top clearfix">
+					<div class="avatar-container">
+						<a href="#">
+							<img src="images/default-avatar-thumb.jpg" class="user-profile-avatar" alt="Default-avatar-medium">
+							<!-- <div class="label-wrapper">Upload Picture</div> -->
+						</a>
+					</div>
+					<div class="user-top-info">
+						<h1>tweetFromRavi</h1>
+						<h2>Ravi Ranjan
+							<span class="join-date one-col-hide">Joined May 26, 2015</span>
+						</h2>
+						<div style="display:none;" class="one-col-show">
+							<a style="float: left; margin-right: 15px;" id="bio-toggle" href="#">
+								Bio
+							</a>
+							<div id="follow-followers" class="clearfix">
+								<a href="#">Edit Profile</a>
+							</div>
+						</div>
+						<div id="bio-details">
+							<div style="display:none;" class="join-date one-col-show">Joined May 26, 2015</div>
+							<div class="clearfix">
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div  class="side-box stats-box">
+					<div style="padding: 14px 18px 0;" class="section one-col-hide">
+						<div id="follow-followers" class="clearfix">
+							<a href="#">Edit Profile</a>
+						</div>
+					</div>
+					<div class="section">
+						<ul id="traderStats" class="clearfix">
+							<li>
+								<a href="#"><span>0</span>&nbsp;Ideas</a>
+							</li>
+							<li>
+								<a href="#"><span>0</span>
+									&nbsp; Followers</a>
+								</li>
+								<li>
+									<a href="#"><span>60</span>
+										&nbsp; Following</a>
+									</li>
+									<li>
+										<a href="#"><span>0</span>
+											&nbsp; Stocks</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div id="content-wrapper">
+						<div id="main-content"><ul class="bar-options substream-toggles">
+							<li>
+								<a href="javascript:;" data-substream="all" class="toggle active">All</a>
+							</li>
+							<li>
+								<a href="javascript:;" data-substream="charts" class="toggle">Charts</a>
+							</li>
+							<li>
+								<a href="javascript:;" data-substream="links" class="toggle">Links</a>
+							</li>
+							<li>
+								<a href="javascript:;" data-substream="liked_by" class="toggle">LIKED</a>
+							</li>
+						</ul>
+					</div>
+					<div id="side-content">
+						<footer class="footer">
+							<div class="">
+								<div class="row ">
+									<div class="text-center">
+										<a href="#" title="Trading Social">Home</a> |
+										<a href="#" title="About us">About us</a> |
+										<!-- <a href="#" title="Trading blog">Blog</a> | -->
+										<a href="#" title="Contact us">Contact us</a>
+				</div>
+				<div class="text-center">
+					&copy;2015 Trading Social. All rights reserved
+				</div>
+				<div class="text-center social">
+					<a href="#" class="btn-social btn-facebook" title="Facebook"><i class="fa fa-facebook"></i></a> |
+					<a href="#" class="btn-social btn-twitter" title="Twitter"><i class="fa fa-twitter"></i></a> |
+					<a href="#" class="btn-social btn-google" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</div>
+</div>
+<!-- footer -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="libs/jquery-2.1.4/jquery-ui.min.js"></script>
+<!-- Bootstrap Js-->
+<script src="libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.4/js/bootstrap-timepicker.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

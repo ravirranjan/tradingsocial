@@ -92,4 +92,61 @@ $(document).ready(function($){
 			return '<img src="'+$(this).data('img') + '" />';
 		}
 	});
+
+	$('#session-nav').hover(
+	  function () {
+	    $('#trader-drop-down').show();
+	  }, 
+	  function () {
+	    $('#trader-drop-down').hide();
+	  }
+	);
+
+	this.base = document.location.protocol + "//"+ document.location.host;
+	this.restBase = this.base + "/rest-api";
+	this.loginBase = this.restBase + "/userlogin";
+	this.forgotPasswordBase = this.restBase + "/forgotpassword";
+	this.password = "mayur";
+	this.email =  "test@testmail.com";
+	var self = this;
+	$('#login').click(function(){ 
+
+		var emailAddress = $('#login_email').val();
+		var password = $('#login_pass').val();
+
+		//var data = {emailAddress: self.email, password: self.password};
+		var data = {emailAddress: emailAddress, password: password};
+
+		var result = $.httpPost( self.loginBase, data );
+
+		result.then(function( response ){
+			window.location = self.base + "/home.html";
+		}).fail(function( response ){
+		});
+
+    });
+
+	$('#forgot-password').click(function(){ 
+		var emailAddress = $('#femail').val();
+		var data = {emailAddress: emailAddress};
+
+		var result = $.httpPost( self.forgotPasswordBase, data );
+
+		result.then(function( response ){
+			console.log("success=====",response);
+		}).fail(function( response ){
+			console.log("error=====", response);
+		});
+
+	});
+    $.httpPost = function( url, data ) {
+    	return $.ajax({
+			url: url,
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(data),
+			dataType: "json",
+		}).promise();
+    }
+	
 });
