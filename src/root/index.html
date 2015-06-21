@@ -12,11 +12,9 @@
 	
 	<!-- Bootstrap css-->
 	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-theme.min.css">
 	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-override.css">
 	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
 
-	<!-- Trending Social css -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700'>
 	<link type="text/css" rel="stylesheet" href="css/main.css">	
@@ -40,15 +38,6 @@
 						<a href="#0" class="btn-primary navbar-btn trading-social-signup">Join</a> 
 					</li>
 				</ul>
-
-
-				<!-- <div class="nav navbar-nav navbar-right logged-in logged-out" id="user-info">
-					<button type="button" class="btn btn-primary navbar-btn">Join</button>
-					<button type="button" class="btn btn-primary navbar-btn">Sign In</button>
-				<!	<script>
-					$( "#user-info" ).load( "home.html" );
-					</script>
-				-->
 			</div>
 
 			<form class="col-md-4 navbar-right" id="search-form" role="search">
@@ -197,18 +186,18 @@
 							</div>
 							<div id="trading-social-login">
 								<div class="modal-body">
-									<form class="form col-md-12 center-block">
-										<div class="input-group input-group-lg margin-bottom-sm">
+									<form class="form col-md-12 center-block" id="login_form">
+										<div class="input-group input-group-lg margin-top-sm  margin-bottom-sm">
 											<span class="input-group-addon">
 												<span class="glyphicon glyphicon-envelope"></span>
 											</span>
-											<input class="form-control" type="text" id="login_email" placeholder="Email address">
+											<input class="form-control" type="text" id="login_email" name="username" placeholder="Email address">
 										</div>
 										<div class="input-group input-group-lg margin-bottom-sm">
 											<span class="input-group-addon">
 												<span class="glyphicon glyphicon-lock"></span>
 											</span>
-											<input class="form-control"  type="password" id="login_pass" placeholder="Password">
+											<input class="form-control" name="password"  type="password" id="login_pass" title="Minimum password length is 6 characters" placeholder="Password">
 										</div> 
 										<div class="col-sm-8 remember-pass">
 											<div class="form-group">
@@ -334,10 +323,10 @@
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
-<script src="libs/jquery-2.1.4/jquery-ui.min.js"></script>
+<script src="libs/jquery-2.1.4/jquery.validate.min.js"></script>
+
 <!-- Bootstrap Js-->
 <script src="libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-3.3.4/js/bootstrap-timepicker.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 

@@ -113,15 +113,17 @@ $(document).ready(function($){
 
 		var emailAddress = $('#login_email').val();
 		var password = $('#login_pass').val();
-
+		$.validation();
 		//var data = {emailAddress: self.email, password: self.password};
 		var data = {emailAddress: emailAddress, password: password};
 
 		var result = $.httpPost( self.loginBase, data );
 
 		result.then(function( response ){
+			localStorage.setItem( 'userInfo', JSON.stringify(response) );
 			window.location = self.base + "/home.html";
 		}).fail(function( response ){
+			
 		});
 
     });
@@ -129,24 +131,77 @@ $(document).ready(function($){
 	$('#forgot-password').click(function(){ 
 		var emailAddress = $('#femail').val();
 		var data = {emailAddress: emailAddress};
-
+		 
 		var result = $.httpPost( self.forgotPasswordBase, data );
 
 		result.then(function( response ){
-			console.log("success=====",response);
+			
 		}).fail(function( response ){
-			console.log("error=====", response);
+			
 		});
 
 	});
-    $.httpPost = function( url, data ) {
-    	return $.ajax({
-			url: url,
-			type: "POST",
-			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify(data),
-			dataType: "json",
-		}).promise();
-    }
 	
+
+
 });
+
+$.httpPost = function( url, data ) {
+	return $.ajax({
+		url: url,
+		type: "POST",
+		contentType: "application/json; charset=utf-8",
+		data: JSON.stringify(data),
+		dataType: "json",
+	}).promise();
+}
+ $.validation = function() {
+
+	console.log();
+	$("#login_form").validate({
+		 rules: {
+        	username: {
+	            required: true,
+	            email: true
+        	},
+	        password: {
+	            required: true,
+	            minlength: 6,
+        	},
+	            
+	       
+    	},
+    	messages: {
+    		username: {
+    			required : 	"This field is required",
+    			email: 		"Please enter a proper email address",
+    		},
+    		password: {
+    			required: "This field is required",
+    			minlength: "Minimum password length is 6 characters"
+    		} ,
+
+   		 },
+   		  highlight: function(element) {
+        	$(element).closest('.input-group').addClass('has-error');
+        	$(element).closest('.input-group').removeClass('margin-bottom-sm');
+   		 },
+    		unhighlight: function(element) {
+        	$(element).closest('.input-group').removeClass('has-error');
+        	$(element).closest('.input-group').addClass('margin-bottom-sm');
+    	},
+    	errorElement: 'span',
+    	errorClass: 'help-block',
+    	errorPlacement: function(error, element) {
+	        if(element.parent('.input-group').length) {
+	            error.insertAfter(element.parent());
+	        } else {
+	            error.insertAfter(element);
+	        }
+    	},
+    	 submitHandler: function(form) { 
+    	 	 return false;
+    	 }
+	});
+}
+ 

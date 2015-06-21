@@ -9,16 +9,13 @@
 	<link rel="shortcut icon" href="libs/ico/favicon.ico">
 	<!-- jquery-2.1.4 -->
 	<script src="libs/jquery-2.1.4/jquery-ui.min.css"></script>
-	
 	<!-- Bootstrap css-->
 	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-theme.min.css">
 	<link type="text/css" rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap-override.css">
 	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
 
 	<!-- Trending Social css -->
-	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700'> -->
+	
 	<link type="text/css" rel="stylesheet" href="css/main.css">	
 </head>
 <body>
@@ -40,7 +37,10 @@
 								<div id="user-avatar">
 									<img src="images/default-avatar-thumb.jpg" alt="Default-avatar-thumb">
 								</div>
-								<span class="user-login-text">tweetFromRavi</span>
+								<script id="user-name" type="text/x-handlebars-template">{{userName}}</script>
+								<span class="user-login-text">
+									
+								</span>
 								<span id="down-arrow"></span>
 							</a>
 						</div>
@@ -121,24 +121,14 @@
 							<!-- <div class="label-wrapper">Upload Picture</div> -->
 						</a>
 					</div>
-					<div class="user-top-info">
-						<h1>tweetFromRavi</h1>
-						<h2>Ravi Ranjan
+					<script id="user-top-info" type="text/x-handlebars-template">
+						<h1>{{userName}}</h1>
+						<h2>{{fullName}}
 							<span class="join-date one-col-hide">Joined May 26, 2015</span>
 						</h2>
-						<div style="display:none;" class="one-col-show">
-							<a style="float: left; margin-right: 15px;" id="bio-toggle" href="#">
-								Bio
-							</a>
-							<div id="follow-followers" class="clearfix">
-								<a href="#">Edit Profile</a>
-							</div>
-						</div>
-						<div id="bio-details">
-							<div style="display:none;" class="join-date one-col-show">Joined May 26, 2015</div>
-							<div class="clearfix">
-							</div>
-						</div>
+					</script>
+					<div class="user-top-info">
+						
 					</div>
 
 				</div>
@@ -189,38 +179,62 @@
 						</ul>
 					</div>
 					<div id="side-content">
-						<footer class="footer">
-							<div class="">
-								<div class="row ">
-									<div class="text-center">
-										<a href="#" title="Trading Social">Home</a> |
-										<a href="#" title="About us">About us</a> |
-										<!-- <a href="#" title="Trading blog">Blog</a> | -->
-										<a href="#" title="Contact us">Contact us</a>
+						
 				</div>
-				<div class="text-center">
-					&copy;2015 Trading Social. All rights reserved
-				</div>
-				<div class="text-center social">
-					<a href="#" class="btn-social btn-facebook" title="Facebook"><i class="fa fa-facebook"></i></a> |
-					<a href="#" class="btn-social btn-twitter" title="Twitter"><i class="fa fa-twitter"></i></a> |
-					<a href="#" class="btn-social btn-google" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-				</div>
-			</div>
-		</div>
-	</footer>
-</div>
 </div>
 </div>
 <!-- footer -->
+<footer class="footer">
+	<div class="container-fluid">
+		<div class="row ">
+			<div class="col-md-4 text-center">
+				<a href="#" title="Trading Social">Home</a> |
+				<a href="#" title="About us">About us</a> |
+				<!-- <a href="#" title="Trading blog">Blog</a> | -->
+				<a href="#" title="Contact us">Contact us</a>
+				<!-- <a href="#" title="Terms of services">Terms of Service</a> |
+				<a href="#" title="privacy">Privacy</a> -->
 
+			</div>
+			<div class="col-md-4 text-center">
+				&copy;2015 Trading Social. All rights reserved
+			</div>
+			<div class="col-md-4 text-center social">
+				<a href="#" class="btn-social btn-facebook" title="Facebook"><i class="fa fa-facebook"></i></a> |
+				<a href="#" class="btn-social btn-twitter" title="Twitter"><i class="fa fa-twitter"></i></a> |
+				<a href="#" class="btn-social btn-google" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+			</div>
+		</div>
+		<div class="row">
+
+		</div>
+		<div class="row">
+
+		</div>
+	</div>
+</footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
-<script src="libs/jquery-2.1.4/jquery-ui.min.js"></script>
 <!-- Bootstrap Js-->
 <script src="libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-3.3.4/js/bootstrap-timepicker.min.js"></script>
+<script src="libs/handlebars/handlebars-v1.3.0.js"></script>
 <script src="js/main.js"></script>
+<script type="text/javascript">
+	var userInfo = JSON.parse( localStorage.getItem('userInfo') );
+
+	var userName = $("#user-name").html();
+	console.log(userName);
+  	var template = Handlebars.compile(userName);
+  	var theCompiledHtml = template(userInfo);
+  	$('.user-login-text').html(theCompiledHtml);
+
+	var userInfoTempalte = $("#user-top-info").html();
+  	var template = Handlebars.compile(userInfoTempalte);
+  // Pass our data to the template
+  	var theCompiledHtml = template(userInfo);
+   // Add the compiled html to the page
+  	$('.user-top-info').html(theCompiledHtml);
+  </script
 </body>
 
 </html>
